@@ -12,6 +12,11 @@
 #   public *;
 #}
 
+-dontwarn okhttp3.internal.platform.*
+-dontwarn okio.**
+-dontwarn retrofit2.Platform$Java8
+-dontwarn com.squareup.okhttp.**
+-dontwarn ss.com.**
 # Uncomment this to preserve the line number information for
 # debugging stack traces.
 #-keepattributes SourceFile,LineNumberTable
