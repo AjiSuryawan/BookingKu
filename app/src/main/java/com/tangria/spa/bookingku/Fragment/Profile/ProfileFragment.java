@@ -16,7 +16,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.tangria.spa.bookingku.Activity.History.TimeLineActivity;
 import com.tangria.spa.bookingku.Fragment.Base.BaseFragment;
 import com.tangria.spa.bookingku.Model.Profile;
 import com.tangria.spa.bookingku.Network.BookingClient;
@@ -58,7 +57,7 @@ public class ProfileFragment extends BaseFragment {
         btnhistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(view.getContext(), TimeLineActivity.class));
+                //startActivity(new Intent(view.getContext(), TimeLineActivity.class));
             }
         });
         tvlogout = view.findViewById(R.id.tvlogout);
@@ -78,8 +77,8 @@ public class ProfileFragment extends BaseFragment {
                     telpuser.setText(response.body().getNoHp());
 
                     RequestOptions requestOptions = new RequestOptions();
-                    requestOptions.placeholder(R.drawable.avatar);
-                    requestOptions.error(R.drawable.avatar);
+                    //requestOptions.placeholder(R.drawable.avatar);
+                    //requestOptions.error(R.drawable.avatar);
 
                     Glide.with(view.getContext())
                             .setDefaultRequestOptions(requestOptions)

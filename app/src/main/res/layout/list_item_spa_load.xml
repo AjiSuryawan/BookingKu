@@ -45,7 +45,6 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:ellipsize="end"
-                        android:fontFamily="@font/roboto_medium"
                         android:maxLines="3"
                         android:text="qwertyuiopasdfghjklzxcvbnm1223iu3ijdkjsjksj"
                         android:textColor="@color/placeholder_bg"
@@ -57,7 +56,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:ellipsize="end"
-                        android:fontFamily="@font/roboto_light"
                         android:maxLines="3"
                         android:text="A powerful ingredient for overall wellness, massage therapies decrease anxiety, enhance quality of sleep and improve energy and healing."
                         android:textColor="@color/placeholder_bg"
@@ -77,7 +75,6 @@
                         android:background="@color/placeholder_bg"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="5dp"
-                        android:fontFamily="@font/roboto_light"
                         android:layout_marginBottom="15dp"/>
             </LinearLayout>
         </LinearLayout>

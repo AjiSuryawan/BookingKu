@@ -1,6 +1,5 @@
 package com.tangria.spa.bookingku.Network;
 
-import com.tangria.spa.bookingku.Activity.History.RegisterRespon;
 import com.tangria.spa.bookingku.Activity.Notification.NotificationModel;
 import com.tangria.spa.bookingku.Fragment.Home.data_item_spa;
 import com.tangria.spa.bookingku.Fragment.PromonInfo.ResonWaktuFalse;
@@ -33,15 +32,15 @@ public interface BookingService {
             @Field("password") String password,
             @Field("fcm_token") String token
     );
-    @FormUrlEncoded
-    @POST("api/user/signup")
-    Call<RegisterRespon> signup(
-            @Field("email") String email,
-            @Field("name") String name,
-            @Field("password") String password,
-            @Field("phone") String phone,
-            @Field("fcm_token") String token
-    );
+//    @FormUrlEncoded
+//    @POST("api/user/signup")
+//    Call<RegisterRespon> signup(
+//            @Field("email") String email,
+//            @Field("name") String name,
+//            @Field("password") String password,
+//            @Field("phone") String phone,
+//            @Field("fcm_token") String token
+//    );
 
 
     @FormUrlEncoded

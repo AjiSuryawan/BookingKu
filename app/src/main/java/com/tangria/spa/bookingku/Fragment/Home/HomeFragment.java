@@ -33,7 +33,7 @@ public class HomeFragment extends BaseFragment{
             @Override
             public void onClick(View v) {
                 Intent in=new Intent(view.getContext(), Massage.class);
-                in.putExtra("category","package_treatment");
+                in.putExtra("category","perum1");
                 startActivity(in);
             }
         });
@@ -43,7 +43,7 @@ public class HomeFragment extends BaseFragment{
             @Override
             public void onClick(View v) {
                 Intent in=new Intent(view.getContext(), Massage.class);
-                in.putExtra("category","ala_carte_treatment");
+                in.putExtra("category","perum2");
                 startActivity(in);
             }
         });

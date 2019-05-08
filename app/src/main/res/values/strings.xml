@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Tangria Spa</string>
+    <string name="app_name">App Name</string>
     <string name="timepicker_title">Select Time</string>
     <string name="datepicker_title">Select Date</string>
 

@@ -15,32 +15,26 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
+import com.facebook.login.widget.LoginButton;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
 import com.tangria.spa.bookingku.Activity.Main.MainActivity;
 import com.tangria.spa.bookingku.Model.BookingResponse;
 import com.tangria.spa.bookingku.Network.BookingClient;
 import com.tangria.spa.bookingku.Network.BookingService;
 import com.tangria.spa.bookingku.R;
-import com.facebook.*;
-import com.facebook.login.LoginManager;
-import com.facebook.login.LoginResult;
-import com.facebook.login.widget.LoginButton;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.SignInButton;
-import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.tasks.Task;
-import org.json.JSONException;
-import org.json.JSONObject;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import java.util.Arrays;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String EMAIL = "email";
@@ -62,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         tvregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
+                //startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
             }
         });
         dialog = new ProgressDialog(LoginActivity.this);
@@ -70,6 +64,7 @@ public class LoginActivity extends AppCompatActivity {
         callbackManager = CallbackManager.Factory.create();
         btnFacebook = findViewById(R.id.facebookSigninBtn);
         //cetakhash();
+        /*
         GoogleSignInOptions signInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail().build();
         final GoogleSignInClient mGoogleSignInClient = GoogleSignIn.getClient(LoginActivity.this, signInOptions);
@@ -82,6 +77,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivityForResult(intent, 997);
             }
         });
+        */
         txtusername = (EditText) findViewById(R.id.txtusername);
         txtpassword = (EditText) findViewById(R.id.txtpassword);
         Button btnlogin = (Button) findViewById(R.id.btnlogin);
@@ -93,6 +89,16 @@ public class LoginActivity extends AppCompatActivity {
                 if (username.isEmpty() || password.isEmpty()) {
                     Toast.makeText(LoginActivity.this, "please fill my heart first to send a request :(", Toast.LENGTH_SHORT).show();
                 } else {
+
+                    editor = pref.edit();
+                    editor.putInt("userid", 1);
+                    editor.apply();
+                    Intent in = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(in);
+                    finish();
+
+
+                    /*
                     dialog.setMessage("Login process");
                     dialog.show();
                     String token = getSharedPreferences("firebase_token", MODE_PRIVATE).getString("firebase_token", "");
@@ -137,14 +143,17 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this, "Cannot connect to server", Toast.LENGTH_SHORT).show();
                         }
                     });
+                    */
                 }
             }
         });
+        /*
         btnFacebook.setReadPermissions(Arrays.asList(EMAIL));
         if (accessToken != null) {
             accessToken = com.facebook.AccessToken.getCurrentAccessToken();
             LoginManager.getInstance().logOut();
         }
+
         btnFacebook.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
@@ -240,6 +249,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onError(FacebookException error) {
             }
         });
+        */
     }
 
     @Override
@@ -267,7 +277,7 @@ public class LoginActivity extends AppCompatActivity {
             } else {
                 avatar = "avatar";
             }
-            Log.d("avatarku", "handleSignInResult: "+avatar);
+            Log.d("avatarku", "handleSignInResult: " + avatar);
 
             //intent
             String token = getSharedPreferences("firebase_token", MODE_PRIVATE).getString("firebase_token", "");
@@ -286,28 +296,28 @@ public class LoginActivity extends AppCompatActivity {
                                 editor = pref.edit();
                                 editor.putInt("userid", userId);
                                 editor.apply();
-                                Log.e("isPhoneNull", "onResponse: " + isPhoneNull );
-                                if(!isPhoneNull) {
+                                Log.e("isPhoneNull", "onResponse: " + isPhoneNull);
+                                if (!isPhoneNull) {
                                     Intent in = new Intent(getApplicationContext(), MainActivity.class);
                                     startActivity(in);
                                     finish();
                                 } else {
-                                    Intent intent = new Intent(LoginActivity.this, InputPhone.class);
-                                    startActivity(intent);
-                                    finish();
+//                                    Intent intent = new Intent(LoginActivity.this, InputPhone.class);
+//                                    startActivity(intent);
+//                                    finish();
                                 }
                             } else {
                                 Toast.makeText(LoginActivity.this, "Something wrong is happen", Toast.LENGTH_SHORT).show();
                             }
                         }
-                    } catch (Exception e){
-                        Log.d("lala5", "onActivityResult: "+e.toString());
+                    } catch (Exception e) {
+                        Log.d("lala5", "onActivityResult: " + e.toString());
                     }
                 }
 
                 @Override
                 public void onFailure(Call<BookingResponse> call, Throwable t) {
-                    Log.d("lala6", "onActivityResult: "+t.toString());
+                    Log.d("lala6", "onActivityResult: " + t.toString());
                     t.printStackTrace();
                     Toast.makeText(LoginActivity.this, "Cannot connect to server", Toast.LENGTH_SHORT).show();
                 }
@@ -318,7 +328,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public void cetakhash(){
+    public void cetakhash() {
         PackageInfo info;
         try {
             info = getPackageManager().getPackageInfo("com.tangria.spa.bookingku", PackageManager.GET_SIGNATURES);

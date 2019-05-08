@@ -1,5 +1,6 @@
 package com.tangria.spa.bookingku.Activity.Jenisproduk;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
@@ -8,12 +9,15 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.tangria.spa.bookingku.Activity.Search;
 import com.tangria.spa.bookingku.Fragment.Home.adapter_list_item_spa;
 import com.tangria.spa.bookingku.Fragment.Home.data_item_spa;
 import com.tangria.spa.bookingku.Network.BookingClient;
@@ -43,7 +47,20 @@ public class Massage extends AppCompatActivity {
 
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_toolbar, menu);
+        return true;
+    }
+
+
+
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_notification) {
+            startActivity(new Intent(getApplicationContext(), Search.class));
+        }
         switch (item.getItemId()) {
             // Respond to the action bar's Up/Home button
             case android.R.id.home:
@@ -62,7 +79,7 @@ public class Massage extends AppCompatActivity {
         if (extras != null) {
             data = extras.getString("category");
         }
-layoutkosong=(RelativeLayout)findViewById(R.id.layoutkosong);
+        layoutkosong=(RelativeLayout)findViewById(R.id.layoutkosong);
         toolbar = findViewById(R.id.toolbar);
         tvTitleToolbar = findViewById(R.id.tv_title);
 
@@ -96,15 +113,36 @@ layoutkosong=(RelativeLayout)findViewById(R.id.layoutkosong);
         mShimmerViewContainer.startShimmerAnimation();
         BookingService bookingService = BookingClient.getRetrofit().create(BookingService.class);
         Log.e("Massage", "load_data: " + data);
-        if (data.equalsIgnoreCase("package_treatment")) {
+        if (data.equalsIgnoreCase("perum1")) {
             call = bookingService.getPackageTreatment();
-            title = "Package Treatment";
+            title = "Perumahan 1";
             tvTitleToolbar.setText(title);
-        } else if (data.equalsIgnoreCase("ala_carte_treatment")) {
+        } else if (data.equalsIgnoreCase("perum2")) {
             call = bookingService.getAlaCarteTreatment();
-            title = "Ala Carte Treatment";
+            title = "Perumahan 2";
             tvTitleToolbar.setText(title);
         }
+
+
+        data_item_spa data1=new data_item_spa();
+        data1.setName("Rumah 01xxx");
+        data1.setDescription("Alamat rumah / deskripsi produk / pembayaran bulan lalu");
+
+        arrayList.add(data1);
+
+
+        recyclerView.setVisibility(View.VISIBLE);
+        swipeRefreshLayout.setRefreshing(false);
+        swipeRefreshLayout.setVisibility(View.VISIBLE);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        adapter = new adapter_list_item_spa(getApplicationContext(), arrayList);
+        recyclerView.setAdapter(adapter);
+        Log.e("hasilnya", "onResponse: " + arrayList);
+        mShimmerViewContainer.stopShimmerAnimation();
+        mShimmerViewContainer.setVisibility(View.GONE);
+        recyclerView.setVisibility(View.VISIBLE);
+
+        /*
         call.enqueue(new Callback<List<data_item_spa>>() {
             @Override
             public void onResponse(Call<List<data_item_spa>> call, Response<List<data_item_spa>> response) {
@@ -168,5 +206,6 @@ layoutkosong=(RelativeLayout)findViewById(R.id.layoutkosong);
 
             }
         });
+        */
     }
 }

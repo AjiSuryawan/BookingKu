@@ -40,6 +40,10 @@ public class data_item_spa implements Parcelable {
     @Expose
     private String available;
 
+    public data_item_spa(){
+
+    }
+
     protected data_item_spa(Parcel in) {
         if (in.readByte() == 0) {
             id = null;

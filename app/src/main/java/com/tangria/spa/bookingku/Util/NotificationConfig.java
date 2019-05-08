@@ -42,7 +42,7 @@ public class NotificationConfig {
         NotificationCompat.Builder notifBuilder = new NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
                 .setContentTitle(title)
                 .setContentText(desc)
-                .setSmallIcon(R.mipmap.app_logo2)
+                .setSmallIcon(R.mipmap.ic_launcher_round)
                 .setContentIntent(pendingIntent);
         Notification notification = notifBuilder.build();
         notification.flags = Notification.FLAG_NO_CLEAR | Notification.FLAG_AUTO_CANCEL;

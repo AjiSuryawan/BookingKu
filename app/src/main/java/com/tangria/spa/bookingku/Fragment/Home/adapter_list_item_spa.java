@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
-import com.tangria.spa.bookingku.Activity.Detail.DetailActivity;
+import com.tangria.spa.bookingku.Activity.FormRecord;
 import com.tangria.spa.bookingku.R;
 
 import java.util.List;
@@ -37,7 +37,7 @@ public class adapter_list_item_spa extends RecyclerView.Adapter<adapter_list_ite
         holder.textview_item_spa.setText(data_item.getName());
         holder.textview_description_item.setText(data_item.getDescription());
         if(data_item.getPrice() != null)
-            holder.textview_cost_item.setText(String.valueOf(data_item.getPrice().getHarga()));
+            //holder.textview_cost_item.setText(String.valueOf(data_item.getPrice().getHarga()));
         Glide.with(context)
                 .load(data_item.getImage())
                 .into(holder.imageview_item_spa);
@@ -58,10 +58,11 @@ public class adapter_list_item_spa extends RecyclerView.Adapter<adapter_list_ite
 ////                intent.putExtra("description",description);
 ////                intent.putExtra("price",price.getHarga());
 ////                intent.putExtra("available",available);
-                Intent intent = new Intent(context, DetailActivity.class);
-                intent.putExtra("product", data_item);
+                Intent intent = new Intent(context, FormRecord.class);
+                //intent.putExtra("product", data_item);
 
                 holder.itemView.getContext().startActivity(intent);
+
             }
         });
     }
@@ -74,7 +75,8 @@ public class adapter_list_item_spa extends RecyclerView.Adapter<adapter_list_ite
     public class Holder extends RecyclerView.ViewHolder {
         private ImageView imageview_item_spa;
         private CardView cardku;
-        private TextView textview_item_spa,textview_description_item,textview_cost_item;
+        private TextView textview_item_spa,textview_description_item;
+        //TextView textview_cost_item;
 
         public Holder(View itemView) {
             super(itemView);
@@ -82,7 +84,7 @@ public class adapter_list_item_spa extends RecyclerView.Adapter<adapter_list_ite
             cardku = (CardView) itemView.findViewById(R.id.cardku);
             textview_item_spa = (TextView) itemView.findViewById(R.id.textview_name_item);
             textview_description_item = (TextView)itemView.findViewById(R.id.textview_description_item);
-            textview_cost_item = (TextView)itemView.findViewById(R.id.textview_cost_item);
+            //textview_cost_item = (TextView)itemView.findViewById(R.id.textview_cost_item);
         }
     }
 }

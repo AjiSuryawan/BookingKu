@@ -6,6 +6,8 @@
     android:orientation="vertical">
 
     <android.support.v7.widget.CardView
+        android:layout_margin="10dp"
+        android:padding="20dp"
         android:id="@+id/cardku"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,6 +24,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
+                    android:visibility="gone"
                     android:id="@+id/imageview_item_spa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -47,7 +50,6 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
                     android:ellipsize="end"
-                    android:fontFamily="@font/futuramd"
                     android:maxLines="3"
                     android:textColor="@color/black"
                     android:textStyle="bold"
@@ -60,26 +62,27 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:ellipsize="end"
-                    android:fontFamily="@font/roboto_light"
                     android:maxLines="3"
-                    android:text="Deskripsi Produk"
+                    android:text="Deskripsi Produk dan tagihan bulan lalu"
                     android:textColor="@color/black"
                     android:textSize="12sp" />
 
-                <TextView
-                    android:id="@+id/textview_cost_item"
-                    style="@android:style/TextAppearance.Small"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="15dp"
-                    android:ellipsize="end"
-                    android:fontFamily="@font/roboto_medium"
-                    android:gravity="right"
-                    android:maxLines="3"
-                    android:text="Harga"
-                    android:textColor="@color/black" />
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/checkmark"
+                        android:id="@+id/textview_cost_item"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:ellipsize="end"
+                        android:gravity="right" />
+                </RelativeLayout>
+
             </LinearLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>

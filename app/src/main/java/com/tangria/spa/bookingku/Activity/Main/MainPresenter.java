@@ -33,7 +33,7 @@ public class MainPresenter {
     }
 
     public void navigatetopromo(){
-        view.attachPromoFragment(currentFragment,promoFragment);;
+        view.attachPromoFragment(currentFragment,promoFragment);
         currentFragment = promoFragment;
     }
 }

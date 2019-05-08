@@ -37,7 +37,8 @@
                     android:padding="0dp"
                     android:paddingBottom="0dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/spa1" />
+                    android:src="@drawable/homeku"
+                    />
 
                 <TextView
                     android:id="@+id/articleName"
@@ -53,7 +54,7 @@
                     android:marqueeRepeatLimit="marquee_forever"
                     android:padding="10dp"
                     android:singleLine="true"
-                    android:text="Package Treatment"
+                    android:text="Perumahan 1"
                     android:textColor="@color/white"
                     tools:targetApi="lollipop" />
 
@@ -91,7 +92,7 @@
                     android:padding="0dp"
                     android:paddingBottom="0dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/spa1" />
+                    android:src="@drawable/homeku" />
 
                 <TextView
                     android:id="@+id/articleName2"
@@ -107,7 +108,7 @@
                     android:marqueeRepeatLimit="marquee_forever"
                     android:padding="10dp"
                     android:singleLine="true"
-                    android:text="Ala Carte Treatment"
+                    android:text="Perumahan 2"
                     android:textColor="@color/white"
                     tools:targetApi="lollipop" />
 

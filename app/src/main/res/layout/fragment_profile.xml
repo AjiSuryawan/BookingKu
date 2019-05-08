@@ -61,7 +61,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_gravity="center|center_horizontal"
-                            android:src="@drawable/avatar"/>
+                            android:src="@mipmap/ic_launcher_round"/>
                 </FrameLayout>
                 
                 <ImageView
@@ -80,7 +80,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:text="Memuat..."
+                    android:text="Nama Agent"
                     android:textColor="@android:color/white"/>
             
             <TextView
@@ -89,7 +89,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Memuat..."
+                    android:text="Info Agent"
                     android:textAlignment="center"
                     android:textColor="@android:color/white"/>
             
@@ -168,7 +168,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
-                        android:text="Booking History"
+                        android:text="Info Data Sinkron"
                         android:textColor="@color/ungu"
                         android:textStyle="bold"/>
                   
@@ -195,10 +195,10 @@
                     >
                         
                         <ImageView
+                            android:src="@mipmap/ic_launcher_round"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:layout_margin="10dp"
-                                android:src="@drawable/signout"/>
+                                android:layout_margin="10dp"/>
                         <TextView
                                 android:id="@+id/tvlogout"
                                 android:layout_width="match_parent"

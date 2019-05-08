@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import com.tangria.spa.bookingku.Activity.InputPhone;
+
 import com.tangria.spa.bookingku.Activity.LoginActivity;
 import com.tangria.spa.bookingku.Activity.Main.MainActivity;
 import com.tangria.spa.bookingku.intro;
@@ -25,11 +25,12 @@ public class ControlClass extends Activity {
             Intent in=new Intent(getApplicationContext(),LoginActivity.class);
             startActivity(in);
             finish();
-        } else if(!sharedPreferences.getBoolean("phone", false)){
-            Intent in= new Intent(getApplicationContext(), InputPhone.class);
-            startActivity(in);
-            finish();
         }
+//        else if(!sharedPreferences.getBoolean("phone", false)){
+//            Intent in= new Intent(getApplicationContext(), InputPhone.class);
+//            startActivity(in);
+//            finish();
+//        }
         else{
             Intent in=new Intent(getApplicationContext(),MainActivity.class);
             startActivity(in);

@@ -88,12 +88,12 @@ public class MainActivity extends AppCompatActivity implements MainView, BottomN
                 break;
             case R.id.bottomnav_profile:
                 presenter.navigateCurrentFragmentToProfileFragment();
-                tvTitle.setText("PROFILE");
+                tvTitle.setText("USER PROFILE");
                 break;
 
             case R.id.bottomnav_promo:
                 presenter.navigatetopromo();
-                tvTitle.setText("INFO");
+                tvTitle.setText("SINKRON DATA");
                 break;
         }
         return true;
@@ -150,20 +150,20 @@ public class MainActivity extends AppCompatActivity implements MainView, BottomN
                     .commit();
         }
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_toolbar, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_notification) {
-            Intent intent = new Intent(this, NotificationActivity.class);
-            startActivity(intent);
-        }
-        return true;
-    }
+//
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        MenuInflater inflater = getMenuInflater();
+//        inflater.inflate(R.menu.menu_toolbar, menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        if (item.getItemId() == R.id.action_notification) {
+//            Intent intent = new Intent(this, NotificationActivity.class);
+//            startActivity(intent);
+//        }
+//        return true;
+//    }
 }
