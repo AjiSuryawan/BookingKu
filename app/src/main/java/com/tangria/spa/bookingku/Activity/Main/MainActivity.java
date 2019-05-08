@@ -16,7 +16,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.tangria.spa.bookingku.Activity.Notification.NotificationActivity;
 import com.tangria.spa.bookingku.Fragment.Base.BaseFragment;
 import com.tangria.spa.bookingku.R;
 

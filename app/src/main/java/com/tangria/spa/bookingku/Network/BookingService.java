@@ -1,6 +1,5 @@
 package com.tangria.spa.bookingku.Network;
 
-import com.tangria.spa.bookingku.Activity.Notification.NotificationModel;
 import com.tangria.spa.bookingku.Fragment.Home.data_item_spa;
 import com.tangria.spa.bookingku.Fragment.PromonInfo.ResonWaktuFalse;
 import com.tangria.spa.bookingku.Model.BookingResponse;
@@ -98,10 +97,10 @@ public interface BookingService {
             @Field("id") int id,
             @Field("fcm_token") String token
     );
-
-    @FormUrlEncoded
-    @POST("api/inbox")
-    Call<ArrayList<NotificationModel>> getListNotification(
-            @Field("user_id") int userId
-    );
+//
+//    @FormUrlEncoded
+//    @POST("api/inbox")
+//    Call<ArrayList<NotificationModel>> getListNotification(
+//            @Field("user_id") int userId
+//    );
 }

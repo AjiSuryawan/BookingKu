@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import com.tangria.spa.bookingku.Activity.Jenisproduk.Massage;
+import com.tangria.spa.bookingku.Activity.Search;
 import com.tangria.spa.bookingku.Fragment.Base.BaseFragment;
 import com.tangria.spa.bookingku.R;
 
@@ -33,6 +34,7 @@ public class HomeFragment extends BaseFragment{
             @Override
             public void onClick(View v) {
                 Intent in=new Intent(view.getContext(), Massage.class);
+                //Intent in=new Intent(view.getContext(), Search.class);
                 in.putExtra("category","perum1");
                 startActivity(in);
             }

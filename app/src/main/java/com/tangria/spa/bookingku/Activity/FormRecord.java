@@ -201,7 +201,7 @@ public class FormRecord extends AppCompatActivity {
 
         } else if (requestCode == CAMERA) {
 //            FixBitmap = (Bitmap) data.getExtras().get("data");
-            Log.e("", "onActivityResult: " + cameraFilePath );
+            Log.e("makanan", "onActivityResult: " + cameraFilePath );
             ShowSelectedImage.setImageURI(Uri.parse(cameraFilePath));
             try {
                 FixBitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), Uri.parse(cameraFilePath));
